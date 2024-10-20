@@ -1,0 +1,35 @@
+[project]
+name = "hopprai"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "IRSHIT033", email = "mukherjeeirshit50@gmail.com" }
+]
+dependencies = [
+    "fastapi[standard]>=0.115.2",
+    "pydantic>=2.9.2",
+    "pydantic-settings>=2.6.0",
+    "python-jose[cryptography]>=3.3.0",
+    "authlib>=1.3.2",
+    "requests>=2.32.3",
+    "python-decouple>=3.8",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.rye.scripts]
+dev = { cmd = "python src/hopprai/main.py" }
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/hopprai"]

@@ -3,11 +3,12 @@ from fastapi import FastAPI
 import fastapi
 from hopprai.core.config import settings
 from hopprai.api.v1.endpoints.auth import router as auth_router
-
+from hopprai.api.v1.endpoints.org import router as org_router
 
 def initialize_backend_application() -> fastapi.FastAPI:
     app = FastAPI()
     app.include_router(auth_router)
+    app.include_router(org_router)
     return app
 
 

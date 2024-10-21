@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import RedirectResponse
 import requests
+from hopprai.auth0.dependencies import RoleChecker
 from hopprai.auth0.service import get_user_roles_inside_org
 from hopprai.core.config import settings
 from hopprai.core.util import decode_access_token, decode_id_token
@@ -51,5 +52,7 @@ async def decode_token(details: any=Depends(decode_access_token)):
 @router.get("/get-profile")
 async def decode_id_token(details: any=Depends(decode_id_token)):
     return details
+
+
 
 
